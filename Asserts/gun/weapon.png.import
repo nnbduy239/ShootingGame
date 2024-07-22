@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://srtknixot2dj"
-path="res://.godot/imported/idle.png-0e0de9cdbcbcb70a60f4d71fe10ec494.ctex"
+uid="uid://dhl333jpc1jr7"
+path="res://.godot/imported/weapon.png-32ea04636928ffa8b0b92660936bcbad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asserts/animation_sheet/idle.png"
-dest_files=["res://.godot/imported/idle.png-0e0de9cdbcbcb70a60f4d71fe10ec494.ctex"]
+source_file="res://Asserts/gun/weapon.png"
+dest_files=["res://.godot/imported/weapon.png-32ea04636928ffa8b0b92660936bcbad.ctex"]
 
 [params]
 

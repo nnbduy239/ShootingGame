@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ju6gb2hqekjd"]
+
+[ext_resource type="Texture2D" uid="uid://dhl333jpc1jr7" path="res://Asserts/gun/weapon.png" id="1_qo33k"]
+
+[node name="Gun" type="Node2D"]
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(49, 0)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_qo33k")
+region_enabled = true
+region_rect = Rect2(0.123489, 68.3527, 34.9974, 11.9696)
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+position = Vector2(17.5, 0)
