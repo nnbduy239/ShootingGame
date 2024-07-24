@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 @export var speed = 800
 @export var damge = 20
@@ -13,7 +13,5 @@ func _physics_process(delta):
 		queue_free()
 
 
-func _on_body_entered(body):
+func _on_hit_box_body_entered(body):
 	queue_free()
-	if body.has_method("take_damage"):
-		body.take_damage()
