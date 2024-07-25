@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ju6gb2hqekjd"]
 
-[ext_resource type="Script" path="res://weapon/gun.gd" id="1_obr6y"]
-[ext_resource type="Texture2D" uid="uid://dhl333jpc1jr7" path="res://Asserts/gun/weapon.png" id="1_qo33k"]
+[ext_resource type="Script" path="res://Scripts/Gun/gun.gd" id="1_gpgxq"]
+[ext_resource type="Texture2D" uid="uid://dhl333jpc1jr7" path="res://Asserts/gun/weapon.png" id="2_73elc"]
 
 [node name="Gun" type="Node2D"]
-script = ExtResource("1_obr6y")
+script = ExtResource("1_gpgxq")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
@@ -12,7 +12,7 @@ script = ExtResource("1_obr6y")
 unique_name_in_owner = true
 position = Vector2(49, 0)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("1_qo33k")
+texture = ExtResource("2_73elc")
 region_enabled = true
 region_rect = Rect2(0.123489, 68.3527, 34.9974, 11.9696)
 

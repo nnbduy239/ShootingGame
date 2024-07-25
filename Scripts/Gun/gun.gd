@@ -13,7 +13,7 @@ func shoot():
 	if canShoot:
 		canShoot = false
 		shoot_speed_timer.start()
-		const BULLET = preload("res://weapon/bullet.tscn")
+		const BULLET = preload("res://Scenes/Gun/bullet.tscn")
 		var new_bullet = BULLET.instantiate()
 		new_bullet.global_position = %ShootingPoint.global_position
 		new_bullet.global_rotation = %ShootingPoint.global_rotation

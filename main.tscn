@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1jjoabf3tiwv"]
+
+[ext_resource type="PackedScene" uid="uid://bkuw2yqe0vgx4" path="res://Scenes/Boss/boss.tscn" id="1_8157j"]
+[ext_resource type="PackedScene" uid="uid://b2etpt7rbrl18" path="res://Scenes/Player/player.tscn" id="2_yywsc"]
+
+[node name="main" type="Node2D"]
+
+[node name="Boss" parent="." instance=ExtResource("1_8157j")]
+position = Vector2(967, 223)
+
+[node name="Player" parent="." instance=ExtResource("2_yywsc")]
+position = Vector2(116, 256)

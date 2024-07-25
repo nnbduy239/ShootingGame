@@ -1,8 +1,13 @@
 extends CharacterBody2D
+
 @export var speed = 400
+@export var stats : Stats
+
 @onready var animation_player = $AnimationPlayer
 @onready var gun = $Gun
 
+func _ready():
+	stats.health = stats.max_health
 
 func _process(delta):
 	update_animation()

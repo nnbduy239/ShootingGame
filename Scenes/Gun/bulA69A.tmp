@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjb7yliww26wa"]
+
+[ext_resource type="Script" path="res://Scripts/Gun/bullet.gd" id="1_7x8l4"]
+[ext_resource type="Texture2D" uid="uid://bmc5jpjposjjv" path="res://Asserts/gun/projectile.png" id="2_3k310"]
+[ext_resource type="Script" path="res://Component/HitBoxComponent.gd" id="3_3jdpp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1o7f"]
+radius = 3.01
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_apgw8"]
+radius = 3.00602
+height = 11.9998
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+rotation = 0.0616184
+script = ExtResource("1_7x8l4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3k310")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.62665
+shape = SubResource("CapsuleShape2D_i1o7f")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_3jdpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = -1.62634
+shape = SubResource("CapsuleShape2D_apgw8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

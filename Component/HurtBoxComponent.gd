@@ -9,8 +9,10 @@ func _init():
 func _ready():
 	connect("area_entered", self._on_area_entered)
 
-func _on_area_entered(hitbox: HitBox):
-	if hitbox == null:
-		return
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
+func _on_area_entered(area):
+	if owner.is_in_group("enemies"):
+		if not area.is_in_group("enemies"):
+			owner.stats.health -= area.damage
+	else:
+		owner.stats.health -= area.damage
+		print("health: ", owner.stats.health)
