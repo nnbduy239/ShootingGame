@@ -30,3 +30,4 @@ func _on_collision_timer_timeout():
 func _on_body_entered(body):
 	die()
 
+

@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_g3gkd"]
 [ext_resource type="Texture2D" uid="uid://dsi48bhyokxgq" path="res://Asserts/player/AnimationSheet_Character.png" id="2_3i6hd"]
-[ext_resource type="Resource" uid="uid://d3um40sw4kyhb" path="res://Data/Stats/player.tres" id="2_nbm2i"]
+[ext_resource type="Resource" uid="uid://d3um40sw4kyhb" path="res://Data/Stats/player_stats.tres" id="2_nbm2i"]
 [ext_resource type="Script" path="res://Component/HurtBoxComponent.gd" id="3_cqtnd"]
 [ext_resource type="PackedScene" uid="uid://ju6gb2hqekjd" path="res://Scenes/Gun/gun.tscn" id="3_mh1j1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qy1y"]
-radius = 20.0
-height = 78.0
+radius = 12.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vywv2"]
-radius = 20.0
-height = 78.0
+radius = 13.0
+height = 48.0
 
 [sub_resource type="Animation" id="Animation_uvd8m"]
 length = 0.001
@@ -180,24 +180,26 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_g3gkd")
 stats = ExtResource("2_nbm2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("2_3i6hd")
 hframes = 8
 vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 1)
+position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_1qy1y")
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("3_cqtnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-5, 0)
+visible = false
+position = Vector2(-2, 3)
 shape = SubResource("CapsuleShape2D_vywv2")
 
 [node name="Gun" parent="." instance=ExtResource("3_mh1j1")]
