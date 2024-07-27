@@ -1,35 +1,90 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsoj8kujrjdfn"]
+[gd_scene load_steps=5 format=3 uid="uid://dsoj8kujrjdfn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="1_5q4ki"]
+[ext_resource type="Texture2D" uid="uid://qgj0qlgi1cfs" path="res://Asserts/ui/1.png" id="2_yd1yc"]
+
+[sub_resource type="SystemFont" id="SystemFont_5tyxe"]
+
+[sub_resource type="FontVariation" id="FontVariation_dm7v6"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5q4ki")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yd1yc")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 274.0
-offset_top = 73.0
-offset_right = 925.0
-offset_bottom = 211.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_constants/separation = 60
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_fonts/font = SubResource("SystemFont_5tyxe")
+theme_override_font_sizes/font_size = 64
+text = "My Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Start"
+theme_override_constants/separation = 24
+alignment = 1
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_dm7v6")
+theme_override_font_sizes/font_size = 24
+text = "Start
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_dm7v6")
+theme_override_font_sizes/font_size = 24
+text = "Quit
+"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

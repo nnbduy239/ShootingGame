@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1jjoabf3tiwv"]
+[gd_scene load_steps=21 format=3 uid="uid://d1jjoabf3tiwv"]
 
 [ext_resource type="PackedScene" uid="uid://bkuw2yqe0vgx4" path="res://Scenes/Boss/boss.tscn" id="1_8157j"]
+[ext_resource type="Script" path="res://Resources/stats.gd" id="2_4cdqo"]
 [ext_resource type="PackedScene" uid="uid://b2etpt7rbrl18" path="res://Scenes/Player/player.tscn" id="2_yywsc"]
 [ext_resource type="Texture2D" uid="uid://bjg5buci3bbxg" path="res://Asserts/map/TX Plant.png" id="3_8fd08"]
 [ext_resource type="Texture2D" uid="uid://p3gwkesb47n5" path="res://Asserts/map/TX Props.png" id="4_18nv7"]
@@ -8,7 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://dtwextl25t877" path="res://Asserts/map/TX Tileset Stone Ground.png" id="6_efc2m"]
 [ext_resource type="Texture2D" uid="uid://b70iitdvl3vr8" path="res://Asserts/map/TX Tileset Wall.png" id="7_ispuc"]
 [ext_resource type="Texture2D" uid="uid://bmpvnp5m4xdl3" path="res://Asserts/map/TX Shadow Plant.png" id="8_ht6ej"]
-[ext_resource type="PackedScene" uid="uid://clt420wjq2rq2" path="res://Scenes/Ui/pause_menu.tscn" id="10_u7kld"]
+[ext_resource type="PackedScene" uid="uid://clt420wjq2rq2" path="res://Scenes/UI/pause_menu.tscn" id="10_u7kld"]
+
+[sub_resource type="Resource" id="Resource_rghrg"]
+script = ExtResource("2_4cdqo")
+max_health = 60
+
+[sub_resource type="Resource" id="Resource_nvul2"]
+script = ExtResource("2_4cdqo")
+max_health = 180
+
+[sub_resource type="Resource" id="Resource_1wsq8"]
+script = ExtResource("2_4cdqo")
+max_health = 30
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hju82"]
 texture = ExtResource("3_8fd08")
@@ -1051,9 +1064,21 @@ position = Vector2(-1069, -316)
 [node name="Boss" parent="." instance=ExtResource("1_8157j")]
 position = Vector2(2160, 561)
 
+[node name="Boss2" parent="." instance=ExtResource("1_8157j")]
+position = Vector2(1787, 708)
+stats = SubResource("Resource_rghrg")
+
+[node name="Boss3" parent="." instance=ExtResource("1_8157j")]
+position = Vector2(1370, 538)
+stats = SubResource("Resource_nvul2")
+
+[node name="Boss4" parent="." instance=ExtResource("1_8157j")]
+position = Vector2(1477, 884)
+stats = SubResource("Resource_1wsq8")
+
 [node name="Player" parent="." instance=ExtResource("2_yywsc")]
-position = Vector2(1655, 734)
-collision_mask = 10
+position = Vector2(1897, 944)
+speed = 400
 
 [node name="CameraFollow" type="Camera2D" parent="Player"]
 position = Vector2(-5, 4)
@@ -1086,7 +1111,6 @@ collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
-visible = false
 polygon = PackedVector2Array(1628, 595, 1947, 600, 1944, 421, 2160, 419, 2158, 542, 2452, 549, 2454, 731, 2168, 732, 2168, 983, 2456, 986, 2452, 1051, 1880, 1051, 1878, 986, 1369, 987, 1372, 728, 1121, 725, 1122, 418, 1627, 422, 1628, 595, 1663, 266, 1038, 266, 1007, 773, 1043, 1165, 1793, 1163, 2373, 1165, 2564, 1124, 2536, 585, 2509, 276, 1638, 282, 1740, 401, 1813, 563)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

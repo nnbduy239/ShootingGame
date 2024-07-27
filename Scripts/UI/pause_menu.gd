@@ -19,6 +19,7 @@ func _on_resume_pressed():
 	_is_paused = false
 
 func _on_restart_pressed():
+	_is_paused = false	
 	get_tree().reload_current_scene()
 	
 func _on_quit_pressed():

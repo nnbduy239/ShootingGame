@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://dosuci203khya" path="res://Scenes/UI/health_bar.tscn" id="11_s86x7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htel4"]
-radius = 24.0
+radius = 42.0
 height = 132.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5av30"]
-size = Vector2(339, 160.25)
+size = Vector2(223.5, 160.25)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cw3sy"]
 radius = 56.0
@@ -431,7 +431,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sua11"]
-size = Vector2(234, 92.5)
+size = Vector2(335, 92.5)
 
 [node name="Boss" type="CharacterBody2D" groups=["enemies"]]
 light_mask = 2
@@ -446,7 +446,6 @@ z_index = 2
 position = Vector2(2, -102)
 scale = Vector2(2, 2)
 texture = ExtResource("1_65dd4")
-flip_h = true
 hframes = 22
 vframes = 5
 frame = 66
@@ -455,27 +454,25 @@ frame = 66
 position = Vector2(-1.5, -1.5)
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
-collision_mask = 32
 script = ExtResource("4_wssvd")
 damage = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(-7, 89)
+position = Vector2(3, 83)
 shape = SubResource("CapsuleShape2D_htel4")
 
 [node name="AttackHit" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(9.5, 81)
+position = Vector2(-151, 76)
 shape = SubResource("RectangleShape2D_5av30")
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(3, 3)
-collision_layer = 32
+collision_layer = 256
 collision_mask = 4
 script = ExtResource("2_8jcad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-visible = false
 position = Vector2(3, -14)
 shape = SubResource("CapsuleShape2D_cw3sy")
 debug_color = Color(0.911901, 0.200797, 0.543849, 0.42)
@@ -518,7 +515,7 @@ collision_layer = 16
 script = ExtResource("9_kfgln")
 
 [node name="Zone" type="CollisionShape2D" parent="PlayerDetectedZone"]
-position = Vector2(-3, 15)
+position = Vector2(4.5, 14.25)
 shape = SubResource("RectangleShape2D_sua11")
 
 [node name="HealthBar" parent="." instance=ExtResource("11_s86x7")]

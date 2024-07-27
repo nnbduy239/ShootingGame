@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_4fbmb")
-max_health = 20
+max_health = 100

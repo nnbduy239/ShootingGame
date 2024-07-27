@@ -25,9 +25,9 @@ texture = ExtResource("2_3k310")
 rotation = -1.62665
 shape = SubResource("CapsuleShape2D_i1o7f")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=["player"]]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("3_3jdpp")
 damage = 10
 

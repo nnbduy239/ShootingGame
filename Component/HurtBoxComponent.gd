@@ -15,3 +15,5 @@ func _on_area_entered(area):
 			owner.stats.health -= area.damage
 	else:
 		owner.stats.health -= area.damage
+	#if owner.is_in_group("player"):
+		#owner.stats.health -= area.damage
