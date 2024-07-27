@@ -15,4 +15,3 @@ func _on_area_entered(area):
 			owner.stats.health -= area.damage
 	else:
 		owner.stats.health -= area.damage
-		print(owner.stats.health)
