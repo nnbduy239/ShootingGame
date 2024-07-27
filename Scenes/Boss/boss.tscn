@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkuw2yqe0vgx4"]
+[gd_scene load_steps=26 format=3 uid="uid://bkuw2yqe0vgx4"]
 
 [ext_resource type="Texture2D" uid="uid://dktmdkwk7vjbq" path="res://Asserts/monster/boss.png" id="1_65dd4"]
 [ext_resource type="Script" path="res://Scripts/Boss/boss.gd" id="1_j8bgs"]
@@ -10,21 +10,22 @@
 [ext_resource type="Script" path="res://Scripts/States/Death.gd" id="8_n2iel"]
 [ext_resource type="Script" path="res://Scripts/States/Attack.gd" id="9_6mqv2"]
 [ext_resource type="Script" path="res://Component/PlayerDetectedZone.gd" id="9_kfgln"]
+[ext_resource type="PackedScene" uid="uid://dosuci203khya" path="res://Scenes/Ui/health_bar.tscn" id="11_s86x7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htel4"]
-radius = 62.0
-height = 190.0
+radius = 42.0
+height = 132.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5av30"]
-size = Vector2(175.5, 150.5)
+size = Vector2(223.5, 160.25)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cw3sy"]
 radius = 41.0
 height = 150.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ljwl"]
-radius = 43.0
-height = 142.0
+radius = 42.0
+height = 84.0
 
 [sub_resource type="Animation" id="Animation_do1uf"]
 length = 0.001
@@ -429,18 +430,19 @@ _data = {
 "RESET": SubResource("Animation_mrbdk")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_slh3s"]
-radius = 271.002
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sua11"]
+size = Vector2(261.5, 105)
 
 [node name="Boss" type="CharacterBody2D" groups=["enemies"]]
-position = Vector2(-16, 19)
+light_mask = 2
 collision_layer = 2
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_j8bgs")
 stats = ExtResource("2_vly7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, 3)
+position = Vector2(2, -102)
 scale = Vector2(2, 2)
 texture = ExtResource("1_65dd4")
 hframes = 22
@@ -450,15 +452,16 @@ frame = 66
 [node name="HitBox" type="Area2D" parent="Sprite2D" groups=["enemies"]]
 position = Vector2(-1.5, -1.5)
 scale = Vector2(0.5, 0.5)
+collision_layer = 0
 script = ExtResource("4_wssvd")
 damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(5, 73)
+position = Vector2(3, 83)
 shape = SubResource("CapsuleShape2D_htel4")
 
 [node name="AttackHit" type="CollisionShape2D" parent="Sprite2D/HitBox"]
-position = Vector2(-172.75, 96)
+position = Vector2(-151, 76)
 shape = SubResource("RectangleShape2D_5av30")
 disabled = true
 
@@ -467,12 +470,12 @@ position = Vector2(3, 3)
 script = ExtResource("2_8jcad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(5, 80)
+position = Vector2(4, -21)
 shape = SubResource("CapsuleShape2D_cw3sy")
 debug_color = Color(0.911901, 0.200797, 0.543849, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 84)
+position = Vector2(5, 7)
 shape = SubResource("CapsuleShape2D_1ljwl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -509,8 +512,15 @@ collision_layer = 0
 script = ExtResource("9_kfgln")
 
 [node name="Zone" type="CollisionShape2D" parent="PlayerDetectedZone"]
-position = Vector2(8, 86)
-shape = SubResource("CircleShape2D_slh3s")
+position = Vector2(-62, 3)
+shape = SubResource("RectangleShape2D_sua11")
+
+[node name="HealthBar" parent="." instance=ExtResource("11_s86x7")]
+custom_minimum_size = Vector2(100, 0)
+offset_left = -54.0
+offset_top = 58.0
+offset_right = 95.0
+offset_bottom = 67.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

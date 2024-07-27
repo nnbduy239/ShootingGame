@@ -10,6 +10,8 @@ script = ExtResource("1_gpgxq")
 
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
 unique_name_in_owner = true
+visibility_layer = 2
+z_index = -1
 position = Vector2(49, 0)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_73elc")
