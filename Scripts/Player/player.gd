@@ -51,8 +51,8 @@ func _on_hurt_box_area_entered(area):
 			is_alive = false
 			health_bar.visible = false
 			death_animation.play("death")
+			hurt_box.visible = false
 			timer.start()			
 
 func _on_timer_timeout():
-	get_tree().paused = true
-	print("death")
+	get_tree().change_scene_to_file("res://Scenes/UI/GameOver.tscn")
