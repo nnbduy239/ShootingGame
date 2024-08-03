@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsnsg8s4to5sc"]
+
+[ext_resource type="Script" path="res://Scripts/UI/stage_clear.gd" id="1_v2r0g"]
+
+[node name="StageClear" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2r0g")
+
+[node name="Panel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.639216, 0.913725, 0.968627, 0.0509804)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 8
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "--Clear--"
+
+[node name="Resume" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Next level"
+
+[node name="Restart" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="GridContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="GridContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]

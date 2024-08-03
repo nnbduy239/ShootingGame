@@ -9,16 +9,19 @@ var attack = false
 func enter():
 	player = get_tree().get_first_node_in_group("player")
 
-func physics_update(delta:float):
+
+
+func physics_update(delta: float):
 	if player:
-		var direction = player.global_position - enemy.global_position
-		enemy.velocity = direction.normalized() * move_speed	
-		if enemy.velocity.length() > 0:
-			enemy.animation_player.play("walk")
+		enemy.navigation_agent_2d.target_position = player.global_position
+		var direction = enemy.navigation_agent_2d.get_next_path_position() - enemy.global_position
 		
-	if  enemy.velocity.x > 0:
-		enemy.sprite.flip_h = true
-	else :
-		enemy.sprite.flip_h = false
-	if enemy.player_detection_zone.can_see_player():
-		Transitioned.emit(self, "Attack")
+		# Check the length of the direction vector before normalizing
+		if direction.length() > 150:
+			Transitioned.emit(self, "Idle")
+		else:
+			if not enemy.navigation_agent_2d.is_navigation_finished():
+				enemy.velocity = direction.normalized() * move_speed
+
+		if enemy.player_detection_zone.can_see_player():
+			Transitioned.emit(self, "Attack")

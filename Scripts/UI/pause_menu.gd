@@ -5,7 +5,7 @@ var _is_paused: bool = false:
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and not Global.stage_cleard:
 		_is_paused = !_is_paused
 		
 

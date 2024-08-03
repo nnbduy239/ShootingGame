@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd84iphck3h0k"]
+
+[ext_resource type="AudioStream" uid="uid://dyd0vt7rvctgv" path="res://Asserts/audio/heroic-the-entry-of-actor-bgm-199887.mp3" id="1_jirih"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_jirih")
+volume_db = 10.0
+autoplay = true
